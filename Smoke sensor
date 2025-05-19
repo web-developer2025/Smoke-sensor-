@@ -1,0 +1,103 @@
+#include<wire.h> 
+#include<LiquidCrystal_12C.h>
+
+const int SmokeSensor=A0;
+const int buzzer=7;//for alert 
+const int relay=6;// for water pump
+ const int led=8;
+ const int normal Threshold=200;//lessthan200
+const int medium Threshold=400;//between 200 and 400
+LiquidCrystal_12C lcd(0*27, 16,2);
+
+void setup()
+ {
+pinMode(A0, INPUT);
+pinMode(7, OUTPUT);
+pinMode(6, OUTPUT);
+pinMode(8, OUTPUT);
+Serial.begin(9600);
+lcd.begin();
+lcd.backlight();
+lcd.setCursor(0,0);
+lcd.print("Smoke Detector");
+delay(2000);
+lcd.clear();
+}
+void loop()
+{
+if(smokeLevel<normal Threshold)
+{
+lcd.setCursor(0,1);
+lcd.print("Normal");
+digitalWrite(buzzer,LOW);
+digitalWrite(led,LOW);
+digitalWrite(relay,LOW);
+}
+else if (smoklevel<medium Threshold)
+{
+lcd.setCursor(0,1);
+lcd.print("Medium");
+digitalWrite(buzzer,HIGH);
+digitalWrite(led, LOW);
+digitalWrite(relay,LOW);
+}
+else (smokeLevel>mediumthreshold)
+{
+lcd.setCursor(0,1);
+lcd.print("HIGH");
+digitalWrite(buzzer, HIGH );
+digitalWrite(led,HIGH);
+digitalWrite(relay,HIGH);
+}
+}#include<wire.h> 
+#include<LiquidCrystal_12C.h>
+
+const int SmokeSensor=A0;
+const int buzzer=7;//for alert 
+const int relay=6;// for water pump
+ const int led=8;
+ const int normal Threshold=200;//lessthan200
+const int medium Threshold=400;//between 200 and 400
+LiquidCrystal_12C lcd(0*27, 16,2);
+
+void setup()
+ {
+pinMode(A0, INPUT);
+pinMode(7, OUTPUT);
+pinMode(6, OUTPUT);
+pinMode(8, OUTPUT);
+Serial.begin(9600);
+lcd.begin();
+lcd.backlight();
+lcd.setCursor(0,0);
+lcd.print("Smoke Detector");
+delay(2000);
+lcd.clear();
+}
+void loop()
+{
+if(smokeLevel<normal Threshold)
+{
+lcd.setCursor(0,1);
+lcd.print("Normal");
+digitalWrite(buzzer,LOW);
+digitalWrite(led,LOW);
+digitalWrite(relay,LOW);
+}
+else if (smoklevel<medium Threshold)
+{
+lcd.setCursor(0,1);
+lcd.print("Medium");
+digitalWrite(buzzer,HIGH);
+digitalWrite(led, LOW);
+digitalWrite(relay,LOW);
+}
+else (smokeLevel>mediumthreshold)
+{
+lcd.setCursor(0,1);
+lcd.print("HIGH");
+digitalWrite(buzzer, HIGH );
+digitalWrite(led,HIGH);
+digitalWrite(relay,HIGH);
+}
+}
